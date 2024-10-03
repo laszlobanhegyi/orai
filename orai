@@ -1,0 +1,66 @@
+#1.
+
+nevek_jegyek = []
+csak_jegyek = []
+
+diakokszama = int(input("Hány diákot szeretne hozzáadni?"))
+
+a = 0
+
+for jegy in range(diakokszama):
+    a = a + 1
+    tanulo_neve = input(f"Kérem a {a} diák nevét: ")
+    tanulo_jegye = int(input(f"Kérem a {tanulo_neve} jegyét: "))
+    nevek_jegyek.append((tanulo_neve, tanulo_jegye))
+    csak_jegyek.append(tanulo_jegye)
+
+#2.
+
+kerdes = input("Szeretné látni az összes diákot? igen/nem")
+
+if kerdes == "nem":
+    False
+if kerdes == "igen":
+    print("Nevek Jegyek")
+    for lista in nevek_jegyek:
+        print(lista)
+        
+#3.
+        
+atlag = input("Szeretné látni a jegyek átlagát? igen/nem")
+
+if atlag == "nem":
+    False
+if atlag == "igen":
+    print(f"A jegyek átlaga: {sum(csak_jegyek) / len(csak_jegyek)}")
+    
+#4.
+
+jegyek = input("Szeretné látni a legmagasabb és a legalacsonyabb jegyet? igen/nem")
+
+if jegyek == "nem":
+    False
+if jegyek == "igen":
+    print(f"A legnagyobb jegy: {max(csak_jegyek)} a legkisebb jegy: {min(csak_jegyek)}")
+    
+#5.
+
+eltavolitas = input("Szeretne eltávolítani egy diákot? igen/nem")
+if eltavolitas == "nem":
+    False
+if eltavolitas == "igen":
+    diak_nev = input("melyik diákot szeretné törölni?")
+    db = 0
+    
+    for torles in nevek_jegyek:
+        for vegleges in torles :
+            if vegleges == diak_nev:
+                nevek_jegyek.pop(db)
+        db += 1
+        for lista in nevek_jegyek:
+            print(lista)
+        
+
+
+
+
